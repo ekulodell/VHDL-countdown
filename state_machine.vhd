@@ -17,8 +17,6 @@
 -- Additional Comments:
 -- 
 ----------------------------------------------------------------------------------
-
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.numeric_std.all;
@@ -38,7 +36,6 @@ generic (
 );
 
   Port (
-
         	reset : in std_logic;
 		fclk : in std_logic;
         	HEX1 : out std_logic_vector(7 downto 0);
@@ -46,7 +43,6 @@ generic (
 		EN0  : out std_logic;
 		EN2  : out std_logic;
 		EN3  : out std_logic
-
         );
 end Count1to9;
 
@@ -64,19 +60,15 @@ Count1to9: process(fclk)
 begin
 
 	if rising_edge(fclk) then
-
-
 	EN0<='0';
 	EN1<='1';
 	EN2<='1';
 	EN3<='1';
-
 		if reset='0' then
 			EN0<='0';
 			EN1<='1';
 			EN2<='1';
 			EN3<='1';
-
 			--coun_clk <=  coun_clk+1;
 			case state is
 				when N9 =>
@@ -120,17 +112,12 @@ begin
 				when delay =>
 					if coun_clk = aim_clk then 
 						coun_clk <= 0;
-						state <= new_state;
-						
+						state <= new_state;	
 					else
-						coun_clk <= coun_clk + 1;
-						
+						coun_clk <= coun_clk + 1;	
 					end if;
 			end case;
-				
-		
 		else
-
 			EN0<='1';
 			EN1<='1';
 			EN2<='1';
@@ -141,5 +128,6 @@ begin
 	end if;
 	
 end process;
+
 
 end Behavioral;
