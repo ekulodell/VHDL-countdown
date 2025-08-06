@@ -34,8 +34,8 @@ begin
 		HEX1	=> HE,
         	EN0     => E0,
 		EN1     => E1,
-		EN2		=> E2,
-		EN3		=> E3,
+		EN2	=> E2,
+		EN3	=> E3,
 		fclk	=> ficlk
     );
 ficlk	<= not ficlk after clockperiod/2;
@@ -56,4 +56,5 @@ Process is
 
 	end process;
 end behave;
+
 		
